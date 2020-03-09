@@ -19,7 +19,7 @@ Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-
 class Solution {
     public int maxProfit(int[] prices) {
         if(prices == null || prices.length < 2) return 0;
-        if(prices.length == 2) return (prices[1] > prices[0]) ? prices[1] - prices[0] : 0;
+        if(prices.length == 2) return Math.max(prices[1] > prices[0], 0);
         int min = prices[0], maxProfit = 0;
         for(int i = 1; i < prices.length; i++) {
             maxProfit = Math.max(prices[i] - min, maxProfit);
