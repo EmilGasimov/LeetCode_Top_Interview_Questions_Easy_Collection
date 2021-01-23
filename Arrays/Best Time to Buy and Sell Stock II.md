@@ -1,5 +1,4 @@
 ## Best Time to Buy and Sell Stock II
-
 ### Description
 
 Say you have an array prices for which the ith element is the price of a given stock on day i.
