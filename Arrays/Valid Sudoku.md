@@ -27,4 +27,82 @@ public boolean isValidSudoku(char[][] board) {
     return true;
 }
 ```
+
+### Solution (own)
+```javascript
+/**
+ * @param {character[][]} board
+ * @return {boolean}
+ */
+var isValidSudoku = function(board) {
+    
+    var checkRow = function(row) {
+        let array = [];
+        for (let i = 0; i < 9; i++) {
+            array.push(false);
+        }
+        for (let col = 0; col < 9; col++) {
+            if (!Number.isNaN(Number(board[row][col]))) {
+                if (!array[Number(board[row][col]) - 1]) {
+                    array[Number(board[row][col]) - 1] = true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+    
+    var checkCol = function(col) {
+        let array = [];
+        for (let i = 0; i < 9; i++) {
+            array.push(false);
+        }
+        for (let row = 0; row < 9; row++) {
+            if (!Number.isNaN(Number(board[row][col]))) {
+                if (!array[Number(board[row][col]) - 1]) {
+                    array[Number(board[row][col]) - 1] = true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+    
+    var checkSubBox = function(row, col) {
+        let array = [];
+        for (let i = 0; i < 9; i++) {
+            array.push(false);
+        }
+        for (let i = 3 * row; i < 3 * row + 3; i++) {
+            for (let j = 3 * col; j < 3 * col + 3; j++) {
+                if (!Number.isNaN(Number(board[i][j]))) {
+                    if (!array[Number(board[i][j]) - 1]) {
+                        array[Number(board[i][j]) - 1] = true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    };
+    
+    // validating rows and columns
+    for (let i = 0; i < 9; i++) {
+        if (!checkRow(i)) return false;
+        if (!checkCol(i)) return false;
+    }
+    
+    // validating sub-boxes
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (!checkSubBox(i, j)) return false;
+        }
+    }
+    
+    return true;
+};
+```
     
