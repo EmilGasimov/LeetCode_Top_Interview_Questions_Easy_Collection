@@ -1,15 +1,14 @@
 ## Single Number
 Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
-#### Note:
+#### Follow-up:
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
-#### Example 1:
-```java
+### Example 1:
+```
 Input: [2,2,1]
 Output: 1
 ```
-
 
 ### Solution 
 ```java
@@ -23,6 +22,11 @@ public class Solution {
     }
 }
 ```
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
 [All about XOR](https://accu.org/index.php/journals/1915)
 
 
