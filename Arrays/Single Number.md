@@ -4,23 +4,29 @@ Given a non-empty array of integers, every element appears twice except for one.
 #### Follow-up:
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
-### Example 1:
+### Example:
 ```
 Input: [2,2,1]
 Output: 1
 ```
+### Constraints:
+- 1 <= nums.length <= 3 * 104
+- -3 * 104 <= nums[i] <= 3 * 104
+- Each element in the array appears twice except for one element which appears only once.
 
 ### Solution 
-```java
-public class Solution {
-    public int singleNumber(int[] nums) {
-        int res = 0;
-        for(int num : nums) {
-            res ^= num;
-        }
-        return res;
+```javascript
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function(nums) {
+    let n = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        n ^= nums[i];
     }
-}
+    return n;
+};
 ```
 
 Time Complexity: O(n)
